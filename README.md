@@ -16,9 +16,9 @@
        <li><strong>Documentación automática con Spring Doc:</strong> la API incluye documentación generada automáticamente utilizando <strong>Spring Doc</strong>, lo que facilita la consulta de los endpoints disponibles, sus parámetros y las respuestas esperadas. Esta documentación es accesible en el endpoint <code>/swagger-ui</code>.</li>
     </ul>
 
-# Configuración de la base de datos
-spring.datasource.url=jdbc:mysql://localhost:3306/foroHub
-spring.datasource.username=tu-usuario
+# Configuración de la base de datos<br>
+spring.datasource.url=jdbc:mysql://localhost:3306/foroHub<br>
+spring.datasource.username=tu-usuario<br>
 spring.datasource.password=tu-contraseña
       
 
