@@ -28,7 +28,12 @@ public class SecurityConfiguration {
         return http.csrf(csrf -> csrf.disable())
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(req -> { //Autorizar los request que llegue de /login, todos los demas deben ser autenticados
-                    req.requestMatchers(HttpMethod.POST, "/login").permitAll();
+                    req.requestMatchers(HttpMethod.POST, "/login").permitAll()
+                            .requestMatchers(  //Liberamos URL de Spring doc
+                                    "/v3/api-docs/**",
+                                    "/swagger-ui.html",
+                                    "/swagger-ui/**")
+                            .permitAll();
                     req.anyRequest().authenticated();
                 })
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class) //Agregar MI SecurityFilter. Ademas validamos el usuario y verifica que esté realmente autenticado con una sesion iniciada
